@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt/br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" type="text/css" href="Coisas.css">
+	<style>
+		.container{
+			display: none;
+		}
+	</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>O dia que eu tomei coragem de falar a coisa mais importante  que mudou minha vida de um jeito bom. Nesse dia meu único medo era um NÃO. <hr></h1>
+        <input type="radio" name="question1" id="correct1"><a>18/02</a><br>
+        <input type="radio" name="question1"><a>09/12</a><br>
+        <input type="radio" name="question1"><a>12/06</a><br>
+		<input type="radio" name="question1"><a>01/06</a><br>
+        <button class="next" onclick="next(1)">
+			<i class="bi bi-caret-right-fill" style="font-size: 3rem;"></i>
+		</button>
+    </div>
+
+    <div class="container">
+        <h1> filme que assistimos juntos? Eu sei que esse filme é ruim mais sempre que assisto ele lembro daquele dia de como eu me diverti de como foi ótimo estar com você <hr></h1>
+        <input type="radio" name="question2" ><a>Avatar</a><br>
+        <input type="radio" name="question2" id="correct2"><a>Moonfall</a><br>
+        <input type="radio" name="question2"><a>Vingdores</a><br>
+        <input type="radio" name="question2"><a>300</a><br>
+        <button class="next" onclick="next(2)">
+			<i class="bi bi-caret-right-fill" style="font-size: 3rem;"></i>
+		</button>
+    </div>
+
+    <div class="container">
+        <h1> presente que eu te dei ? Não sei se você lembra mais eu no dia que saímos pela primeira vez fiquei tão nervoso que nesse dia cheguei 10 minutos antes kkkkkkkk e quando deu a hora e você não apareceu eu comecei a pensar que tinha tomado um bolo, minha mente apagou quando você chegou atrasada. Esse dia foi tão especial que comprei algo para você. <hr></h1>
+        <input type="radio" name="question3" ><a>Urso</a><br>
+        <input type="radio" name="question3"><a>Pulseira</a><br>
+        <input type="radio" name="question3"><a>Anel</a><br>
+        <input type="radio" name="question3" id="correct3"><a>Cordão</a><br>
+        <button onclick="result()">
+			<i class="bi bi-caret-right-fill" style="font-size: 3rem;">
+		</i></button>
+    </div>
+
+    <script>
+        // displaying the first block of question
+        document.getElementsByClassName('container')[0].style.display = "block";
+
+        // DEFINING THE NEXT FUNCTION
+        function next(id) {
+            document.getElementsByClassName('container')[id-1].style.display = "none";
+            document.getElementsByClassName('container')[id].style.display = "block";
+        }
+        //getting final result
+        function result() {
+            var score = 0;
+            if (document.getElementById('correct1').checked) {
+                score++;
+            }
+            if (document.getElementById('correct2').checked) {
+                score++;
+            }
+            if (document.getElementById('correct3').checked) {
+                score++;
+            }
+			if (score==3){
+				window.location.href = "carta.html"
+			}
+			else{
+				alert("Você errou alguma pergunta, tente novamente");
+				window.location.href = "Index.html";
+			}
+		}
+    </script>
+</body>
+</html>
